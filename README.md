@@ -1,5 +1,19 @@
 # End-to-end-Kidney_AI
 
+## Workflows
+
+1. Update config.yaml
+2. Update params.yaml
+3. Update entity
+4. Update src/config
+5. Update components
+6. Update pipeline 
+7. Update main.py
+8. Run tests - unit/integration
+9. Update dvc.yaml
+10. Commit changes to Git/DVC
+11. Update app.py 
+
 # How to run?
 ### STEPS:
 
