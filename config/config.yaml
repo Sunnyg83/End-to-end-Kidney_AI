@@ -14,4 +14,9 @@ prepare_base_model:
   # update model with tweaks
   # make the fc only q layer with 2 neurons as this is classification problem
   
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.h5
+
+
 
