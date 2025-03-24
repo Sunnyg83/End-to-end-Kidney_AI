@@ -1,1 +1,49 @@
 [2025-03-22 20:38:33,813: INFO: main: Welcome to our custom logger]
+[2025-03-23 19:27:18,707: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-23 19:27:18,708: ERROR: main: [Errno 2] No such file or directory: 'config/config.yaml']
+Traceback (most recent call last):
+  File "main.py", line 15, in <module>
+    pipeline.main()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/pipeline/stage_01_data_ingestion.py", line 12, in main
+    config = ConfigurationManager()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/config/configuration.py", line 11, in __init__
+    self.config = read_yaml(config_filepath)
+  File "/opt/miniconda3/envs/kidney/lib/python3.8/site-packages/ensure/main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 37, in read_yaml
+    raise e
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 30, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'config/config.yaml'
+[2025-03-23 19:27:44,796: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-23 19:27:44,796: ERROR: main: [Errno 2] No such file or directory: 'config/config.yaml']
+Traceback (most recent call last):
+  File "main.py", line 15, in <module>
+    pipeline.main()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/pipeline/stage_01_data_ingestion.py", line 12, in main
+    config = ConfigurationManager()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/config/configuration.py", line 11, in __init__
+    self.config = read_yaml(config_filepath)
+  File "/opt/miniconda3/envs/kidney/lib/python3.8/site-packages/ensure/main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 37, in read_yaml
+    raise e
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 30, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'config/config.yaml'
+[2025-03-23 19:40:55,235: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-23 19:40:55,236: ERROR: main: [Errno 2] No such file or directory: 'config/config.yaml']
+Traceback (most recent call last):
+  File "main.py", line 15, in <module>
+    pipeline.main()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/pipeline/stage_01_data_ingestion.py", line 12, in main
+    config = ConfigurationManager()
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/config/configuration.py", line 11, in __init__
+    self.config = read_yaml(config_filepath)
+  File "/opt/miniconda3/envs/kidney/lib/python3.8/site-packages/ensure/main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 37, in read_yaml
+    raise e
+  File "/Users/sunnyg/Desktop/End-to-end-Kidney_AI/src/CNN_Classifier/utils/common.py", line 30, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'config/config.yaml'
