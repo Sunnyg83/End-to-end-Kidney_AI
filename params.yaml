@@ -1,1 +1,8 @@
-key: val
+AUGMENTATION: True
+IMAGE_SIZE: [224, 224, 3] # from the VGG 16 model
+BATCH_SIZE: 16 # local training so smaller batch size
+INCLUDE_TOP: False # remove FC layer
+EPOCHS: 1
+CLASSES: 2
+WEIGHTS: imagenet
+LEARNING_RATE: 0.01
