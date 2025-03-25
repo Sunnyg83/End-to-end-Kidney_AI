@@ -8,6 +8,13 @@ import os
 class PredictionPipeline:
     def __init__(self,filename):
         self.filename =filename
+        # Update the path to the correct location of model.h5
+        self.model_path = os.path.join("artifacts", "training", "model.h5")
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(f"The model file was not found at {self.model_path}. Please ensure the file exists.")
+        self.model = load_model(self.model_path)
+
+
 
 
     
@@ -33,5 +40,5 @@ class PredictionPipeline:
             prediction = 'The AI predicts a Kidney Tumor from the CT Scan'
             return [{ "image" : prediction}]
         else:
-            prediction = 'The AI predicts a Normal Tumor from the CT Scan!'
+            prediction = 'The AI predicts a Normal Tumor from the CT Scan'
             return [{ "image" : prediction}]

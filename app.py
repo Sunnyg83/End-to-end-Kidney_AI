@@ -1,5 +1,6 @@
 # using flask to make an api
 
+import base64
 from flask import Flask, request, jsonify, render_template
 import os
 from flask_cors import CORS, cross_origin
@@ -44,12 +45,24 @@ def trainRoute():
 
 
 @app.route("/predict", methods=['POST'])
-@cross_origin()
-def predictRoute():
-    image = request.json['image']
-    decodeImage(image, clApp.filename)
-    result = clApp.classifier.predict()
-    return jsonify(result)
+def predict():
+    try:
+        data = request.get_json()
+        if 'image' not in data:
+            return jsonify({"error": "No image data provided"}), 400
+
+        image_data = data['image']
+        image_path = "temp_image.jpg"
+        with open(image_path, "wb") as f:
+            f.write(base64.b64decode(image_data))
+
+        pipeline = PredictionPipeline(image_path)
+        result = pipeline.predict()
+        return jsonify(result)
+
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
