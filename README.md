@@ -57,6 +57,11 @@ export MLFLOW_TRACKING_URI=https://dagshub.com/sgandhari06/End-to-end-Kidney_AI.
 
 export MLFLOW_TRACKING_USERNAME=sgandhari06 
 
-export MLFLOW_TRACKING_PASSWORD= ea0b0824c0fae55f6e9bf6182552648777ef6b7d
+export MLFLOW_TRACKING_PASSWORD= HIDDEN (Put whatever password you have)
 
 ```
+
+### DVC cmds
+
+1. dvc init
+2. dvc repro
