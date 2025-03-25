@@ -65,3 +65,5 @@ export MLFLOW_TRACKING_PASSWORD= HIDDEN (Put whatever password you have)
 
 1. dvc init
 2. dvc repro
+3. dvc dag 
+# to show the pipeline graph

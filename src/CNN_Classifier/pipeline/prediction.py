@@ -37,8 +37,8 @@ class PredictionPipeline:
         # it is stored in  a 1D array of size two, and the index of the highest value determines tumor or normal
 
         if result[0] == 1:
-            prediction = 'The AI predicts a Kidney Tumor from the CT Scan'
-            return [{ "image" : prediction}]
+            prediction = 'Kidney Tumor'
+            return [{ "AI prediction" : prediction}]
         else:
-            prediction = 'The AI predicts a Normal Tumor from the CT Scan'
-            return [{ "image" : prediction}]
+            prediction = 'No Kidney Tumor'
+            return [{ "AI prediction" : prediction}]
