@@ -84,15 +84,15 @@ export MLFLOW_TRACKING_PASSWORD= HIDDEN (Put whatever password you have)
 
 	#Description: About the deployment
 
-	1. Build docker image of the source code
+	1. Build docker image of the source code.
 
-	2. Push your docker image to ECR
+	2. Push your docker image to ECR.
 
-	3. Launch Your EC2 
+	3. Launch Your EC2.
 
-	4. Pull Your image from ECR in EC2
+	4. Pull Your image from ECR in EC2.
 
-	5. Lauch your docker image in EC2
+	5. Lauch your docker image in EC2.
 
 	#Policy:
 
