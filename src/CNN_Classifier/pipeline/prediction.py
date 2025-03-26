@@ -13,10 +13,30 @@ class PredictionPipeline:
         if not os.path.exists(self.model_path):
             raise FileNotFoundError(f"The model file was not found at {self.model_path}. Please ensure the file exists.")
         self.model = load_model(self.model_path)
+        print(f"Model loaded successfully from {self.model_path}")
 
+    def predict(self):
+        try:
+            # Use the model loaded in __init__
+            imagename = self.filename
+            print(f"Processing image: {imagename}")
 
+            # Load and preprocess image
+            test_image = image.load_img(imagename, target_size=(224, 224))
+            test_image = image.img_to_array(test_image)
+            test_image = np.expand_dims(test_image, axis=0)
+            test_image = test_image / 255.0  # Normalize the image
 
+            # Get raw predictions
+            predictions = self.model.predict(test_image, verbose=0)
+            print("Raw predictions shape:", predictions.shape)
+            print("Raw predictions:", predictions)
 
+            # Get probabilities for each class
+            normal_prob = float(predictions[0][0])
+            tumor_prob = float(predictions[0][1])
+            print(f"Normal probability: {normal_prob:.4f}")
+            print(f"Tumor probability: {tumor_prob:.4f}")
     
     def predict(self):
         # load model
