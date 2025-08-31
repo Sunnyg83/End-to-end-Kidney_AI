@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney AI - Revolutionary Medical Imaging Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 1000px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+            to { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(238, 90, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(238, 90, 36, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 25px;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .story-visual {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+
+        .visual-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 20px;
+            background: #1a202c;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 0 15px;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-sparkles"></i> AI-Powered Medical Innovation
+            </div>
+            <h1>Revolutionizing Kidney Cancer Detection</h1>
+            <p class="hero-subtitle">
+                Experience the future of medical imaging with our cutting-edge AI that analyzes kidney CT scans 
+                with unprecedented accuracy, providing instant insights that could save lives.
+            </p>
+            <a href="/analyze" class="cta-button">
+                <i class="fas fa-rocket"></i> Try AI Analysis Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Story Behind the Science</h2>
+                <p class="section-subtitle">
+                    Every breakthrough begins with a vision to make healthcare more accessible and accurate
+                </p>
+            </div>
+            
+            <div class="story-grid">
+                <div class="story-content fade-in">
+                    <h3>A Medical Revolution</h3>
+                    <p>
+                        In hospitals around the world, <span class="highlight">radiologists spend countless hours</span> 
+                        analyzing CT scans, searching for the subtle signs that could indicate kidney cancer. 
+                        What if we could give them a powerful AI assistant that never gets tired, never misses details, 
+                        and provides insights in seconds?
+                    </p>
+                    <p>
+                        Our <span class="highlight">advanced deep learning model</span> has been trained on thousands 
+                        of kidney CT scans, learning to recognize patterns that even experienced doctors might miss. 
+                        This isn't just technology – it's hope, delivered through artificial intelligence.
+                    </p>
+                </div>
+                
+                <div class="story-visual fade-in">
+                    <div class="visual-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="visual-text">
+                        AI Neural Network<br>
+                        Processing Medical Images<br>
+                        With Human-Level Precision
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title" style="color: white;">Why Our AI Makes a Difference</h2>
+                <p class="section-subtitle" style="color: #a0aec0;">
+                    Combining cutting-edge technology with medical expertise to deliver unparalleled accuracy
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightning-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Instant Analysis</h3>
+                    <p class="feature-description">
+                        Get comprehensive medical insights in seconds, not hours. Our AI processes CT scans 
+                        instantly while maintaining clinical-grade accuracy.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">Precision Accuracy</h3>
+                    <p class="feature-description">
+                        Trained on extensive medical datasets, our model achieves remarkable accuracy 
+                        in detecting both normal kidney tissue and potential tumors.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Medical-Grade Security</h3>
+                    <p class="feature-description">
+                        Your medical data is processed with the highest security standards. 
+                        Privacy-first design ensures complete confidentiality.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="feature-title">Clinical Insights</h3>
+                    <p class="feature-description">
+                        Receive detailed medical findings, severity assessments, and actionable 
+                        recommendations formatted for healthcare professionals.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Continuous Learning</h3>
+                    <p class="feature-description">
+                        Our AI continuously improves through advanced machine learning techniques, 
+                        staying at the forefront of medical imaging technology.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Global Accessibility</h3>
+                    <p class="feature-description">
+                        Making advanced medical AI accessible worldwide, bridging the gap between 
+                        cutting-edge technology and healthcare needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="fade-in">
+                    <div class="stat-number">61%</div>
+                    <div class="stat-label">Accuracy Rate</div>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">&lt;5s</div>
+                    <div class="stat-label">Analysis Time</div>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Training Images</div>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Availability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container fade-in">
+            <h2>Ready to Experience the Future?</h2>
+            <p>
+                Upload your kidney CT scan and witness the power of AI-driven medical analysis. 
+                See how our technology can provide instant, detailed insights that support better healthcare decisions.
+            </p>
+            <a href="/analyze" class="cta-button">
+                <i class="fas fa-upload"></i> Start Your AI Analysis
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.fade-in');
+            
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        
+        // Reveal elements already in view on load
+        document.addEventListener('DOMContentLoaded', revealOnScroll);
+
+        // Add some interactive elements
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Add a ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

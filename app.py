@@ -21,6 +21,11 @@ class ClientApp:
 
 @app.route("/", methods=['GET'])
 @cross_origin()
+def landing():
+    return render_template('landing.html')
+
+@app.route("/analyze", methods=['GET'])
+@cross_origin()
 def home():
     return render_template('index.html')
 

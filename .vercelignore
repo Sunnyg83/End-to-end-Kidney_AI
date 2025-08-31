@@ -1,0 +1,54 @@
+# Model files (too large for Vercel)
+artifacts/
+model/
+*.h5
+*.pkl
+
+# Large data files
+kidney-ct-scan-image/
+data.zip
+
+# Development files
+app.py
+app_simple.py
+__pycache__/
+*.pyc
+.git/
+.gitignore
+
+# Jupyter notebooks
+research/
+*.ipynb
+
+# Logs
+logs/
+
+# Virtual environment
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# Mac files
+.DS_Store
+
+# Local images
+*.jpg
+*.png
+*.jpeg
+
+# DVC files
+dvc.lock
+dvc.yaml
+
+# Other
+temp_image.jpg
+inputImage.jpg
+test.py
+template.py
+main.py
+params.yaml
+scores.json
+setup.py
+*.egg-info/
