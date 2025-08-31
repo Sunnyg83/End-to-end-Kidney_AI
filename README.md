@@ -21,7 +21,7 @@
 Clone the repository
 
 ```bash
-https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
+https://github.com/Sunnyg83/End-to-end-Kidney_AI
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
