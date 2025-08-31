@@ -163,7 +163,7 @@ def predict():
 @app.route("/api/health", methods=['GET'])
 @cross_origin()
 def health():
-    return jsonify({"status": "healthy", "message": "Kidney AI Server Running on Vercel - Latest Version"})
+    return jsonify({"status": "healthy", "message": "Kidney AI Server Running on Vercel - 2K Training Images"})
 
 # For Vercel serverless deployment
 app.debug = False
