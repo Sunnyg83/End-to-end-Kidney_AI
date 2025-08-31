@@ -128,16 +128,19 @@ class SimplePredictionPipeline:
 predictor = SimplePredictionPipeline()
 
 @app.route("/", methods=['GET'])
+@app.route("/api/", methods=['GET'])
 @cross_origin()
 def landing():
     return render_template('landing.html')
 
 @app.route("/analyze", methods=['GET'])
+@app.route("/api/analyze", methods=['GET'])
 @cross_origin()
 def analyze():
     return render_template('index.html')
 
 @app.route("/predict", methods=['POST'])
+@app.route("/api/predict", methods=['POST'])
 @cross_origin()
 def predict():
     try:
@@ -155,6 +158,7 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/health", methods=['GET'])
+@app.route("/api/health", methods=['GET'])
 @cross_origin()
 def health():
     return jsonify({"status": "healthy", "message": "Kidney AI Server Running on Vercel"})
