@@ -47,7 +47,6 @@ pip install -r requirements.txt
 
 MLFLOW_TRACKING_URI=https://dagshub.com/sgandhari06/End-to-end-Kidney_AI.mlflow \
 MLFLOW_TRACKING_USERNAME=sgandhari06 \
-MLFLOW_TRACKING_PASSWORD=ea0b0824c0fae55f6e9bf6182552648777ef6b7d\
 python script.py
 
 Run this to export as env variables:
@@ -142,9 +141,6 @@ export MLFLOW_TRACKING_PASSWORD= HIDDEN (Put whatever password you have)
     AWS_ECR_LOGIN_URI = 
 
     ECR_REPOSITORY_NAME = kidney (if thats what you entered in AWS)
-
-UI
-<img width="1440" alt="Screenshot 2025-03-25 at 6 47 47 PM" src="https://github.com/user-attachments/assets/601bf94d-b343-484a-a7df-73e8e98b9c89" />
 
 
 
