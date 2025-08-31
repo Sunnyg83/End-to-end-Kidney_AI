@@ -5,7 +5,9 @@ import time
 import hashlib
 from flask_cors import CORS, cross_origin
 
-app = Flask(__name__, template_folder='../templates')
+import os
+template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+app = Flask(__name__, template_folder=template_dir)
 CORS(app)
 
 # For Vercel deployment, we'll use a simplified prediction without the heavy ML model
