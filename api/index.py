@@ -1,19 +1,9 @@
 from flask import Flask, request, jsonify, render_template
 import os
-import sys
-from flask_cors import CORS, cross_origin
-import base64
-import json
 import random
 import time
 import hashlib
-
-# Add the parent directory to the path to import our modules
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Set environment variables
-os.putenv('LANG', 'en_US.UTF-8')
-os.putenv('LC_ALL', 'en_US.UTF-8')
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__, template_folder='../templates')
 CORS(app)
@@ -170,8 +160,7 @@ def health():
     return jsonify({"status": "healthy", "message": "Kidney AI Server Running on Vercel"})
 
 # For Vercel serverless deployment
-def handler(request):
-    return app(request.environ, lambda status, headers: None)
+app.debug = False
 
 if __name__ == "__main__":
     app.run(debug=True)
